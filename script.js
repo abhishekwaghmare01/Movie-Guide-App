@@ -1,5 +1,3 @@
-// http://www.omdbapi.com/?i=tt3896198&apikey=e5f18a39
-// http://img.omdbapi.com/?apikey=[yourkey]&
 const searchForm = document.querySelector('form');
 const movieContainer = document.querySelector('.movie-container');
 const inputBox = document.querySelector('.inputBox');
@@ -21,6 +19,21 @@ const getMovieInfo = async (movie)=>{
 const showMovieData = (data)=>{
     //Use destructruing assignment to extract properties from data object
     const {Title, imdbRating, Genre, Released, Runtime, Actors, Plot, Poster} = data;
+
+    const movieElement = document.createElement('div');
+    movieElement.innerHTML = `<h2>${Title}</h2>
+                               <p>${imdbRating}</p>`;
+    
+    const movieGenreElement = document.createElement('div');
+    movieGenreElement.classList.add('movie-genre');
+
+    Genre.split(",").forEach(element =>{
+        const p = document.createElement('p');
+        p.innerText = element;
+        movieGenreElement.appendChild(p);
+    })
+    movieElement.appendChild(movieGenreElement);
+    movieContainer.appendChild(movieElement);
 
 }
 
