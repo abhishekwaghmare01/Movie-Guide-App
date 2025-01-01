@@ -17,6 +17,13 @@ const getMovieInfo = async (movie)=>{
     
 }
 
+//Function to show movie data on screen
+const showMovieData = (data)=>{
+    //Use destructruing assignment to extract properties from data object
+    const {Title, imdbRating, Genre, Released, Runtime, Actors, Plot, Poster} = data;
+
+}
+
 // Adding event listner to search form 
 searchForm.addEventListener('submit', (e)=>{
     e.preventDefault();
